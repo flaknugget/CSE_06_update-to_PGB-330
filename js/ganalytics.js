@@ -70,9 +70,14 @@ French - Quiz - Quiz Finished								frQuizFinishedClick
 
 
 			// Specific English Event Tracking Functions
+			
+			function appTimeOut() {					
+				gaPlugin.trackEvent( nativePluginResultHandler, nativePluginErrorHandler, "Application Timeout - Return to Language Select", "Click", "Click Event", 1);
+			}
+			
+			
 			function enMenu() {					
 				gaPlugin.trackEvent( nativePluginResultHandler, nativePluginErrorHandler, "English - Main Menu", "Click", "Click Event", 1);
-				alert("enMenu()");
 			}
 			function enMenuTravelClick() {					
 				gaPlugin.trackEvent( nativePluginResultHandler, nativePluginErrorHandler, "English - Main Menu - Hotel Lobby (travel)", "Click", "Click Event", 1);
@@ -87,13 +92,12 @@ French - Quiz - Quiz Finished								frQuizFinishedClick
 				gaPlugin.trackEvent( nativePluginResultHandler, nativePluginErrorHandler, "English - Hotel Lobby (travel) - Best Practices - Managers", "Click", "Click Event", 1);
 			}
 			function enTravelPracticeGeneralPublicClick() {	
-				gaPlugin.trackEvent( nativePluginResultHandler, nativePluginErrorHandler, "English - Hotel Lobby (travel) - Best Practices - General Public", "Click Event", 1);
+				gaPlugin.trackEvent( nativePluginResultHandler, nativePluginErrorHandler, "English - Hotel Lobby (travel) - Best Practices - General Public", "Click", "Click Event", 1);
 			}
 			
 			
 			function enMenuWifiClick() {					
 				gaPlugin.trackEvent( nativePluginResultHandler, nativePluginErrorHandler, "English - Main Menu - Airport (Wi-Fi)", "Click", "Click Event", 1);
-				alert("enMenuWifiClick()");
 			}
 			function enWifiClickBestPracticeClick() {					
 				gaPlugin.trackEvent( nativePluginResultHandler, nativePluginErrorHandler, "English - Airport (Wi-Fi) - Best Practices", "Click", "Click Event", 1);
@@ -158,7 +162,7 @@ French - Quiz - Quiz Finished								frQuizFinishedClick
 				gaPlugin.trackEvent( nativePluginResultHandler, nativePluginErrorHandler, "French - Hotel Lobby (travel) - Best Practices - Managers", "Click", "Click Event", 1);
 			}
 			function frTravelPracticeGeneralPublicClick() {	
-				gaPlugin.trackEvent( nativePluginResultHandler, nativePluginErrorHandler, "French - Hotel Lobby (travel) - Best Practices - General Public", "Click Event", 1);
+				gaPlugin.trackEvent( nativePluginResultHandler, nativePluginErrorHandler, "French - Hotel Lobby (travel) - Best Practices - General Public", "Click", "Click Event", 1);
 			}
 			
 			

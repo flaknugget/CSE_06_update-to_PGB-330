@@ -26,6 +26,7 @@
 *{
 	margin: 0;
 	padding: 0;	
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
 html, body, div, span, applet, object, iframe,
@@ -72,8 +73,6 @@ table {
 	border-spacing: 0;
 }
 
-.clear {clear:both;}
-
 /* END CSS Reset */
 
 
@@ -84,49 +83,61 @@ html, body, .enContentWrap, .frContentWrap  {
   width: 1280px;
   background-color: #000000;
   display: block;
-  height: 700px;
+  height: 683px;
   margin: 0;
   padding: 0;
 }
   
 #topbar{
+	position: fixed; 
 	width: 1280px;
-	height: 37px;
-	z-index: 1000; 
-	
+	height: 67px;
+	display: block; 
 	background-color:#000000;
+	z-index: 3;
 }
 
-#topbar .fip {
-	background: url(../svg/csec-fip.svg) no-repeat;
+ .topbar .fip {
+	 
+	background-image: url(../images/topBar.png);
   	background-size: contain;
-	display:block;
-	height: 35px;
+	background-repeat:no-repeat;
+	display: block;
+	height: 67px;
+	
+	transition: background-image 0.5s;
+	-webkit-transition: background-image 0.5s; /* Safari */
+ }
+ 
+  .topbar .fip-fr {
+	 
+	background-image: url(../images/topBar-fr.png);
+  	background-size: contain;
+	background-repeat:no-repeat;
+	display: block;
+	height: 67px;
+	
+	transition: background-image 0.5s;
+	-webkit-transition: background-image 0.5s; /* Safari */
  }
 
 
 #contentContainer{
 	width: 1280px;
-	height: 700px;	
+	height: 683px;	
 }
 
-
-
-#bottombar{
-	width: 1280px;
-	height: 31px;
-	background-color:#000000;	
-}
 
 
 #timeoutBox, #exitScreen, #completeScreen, #introScreen {
 	position: fixed; 
 	z-index: 2; 
 	display: block; 
-	width: 100%; 
+	width: 1280px; 
 	height: 100%;
-	background-image:url(../images/65-alpha-black.png);
+	background-image:url(../images/time-out-bg.png);
 	background-repeat: repeat;
+	background-position:top;
 	top: 0;	
 	text-align: center;
 	font-family: gotham-med;
@@ -206,9 +217,11 @@ html, body, .enContentWrap, .frContentWrap  {
 	height: 50px;
 	width: 300px;
 	margin: 0 auto;
-	padding-left: 70px;	
+	padding-left: 40px;	
 	font-size: 28px;
 }
+
+#exitScreen .exitWarning .circleArrow { padding-left: 70px;	}
 
 #introScreen .backToScene .beginButton {
 	background: url(../svg/backTo-circle-arrow_white.svg) no-repeat;
@@ -228,12 +241,13 @@ html, body, .enContentWrap, .frContentWrap  {
 	background-size: contain;
 	display: inline-block;
 	height: 50px;
-	width: 100px;
+	width: 90px;
 	margin: 0 auto;
 	padding-right: 30px;	
 	padding-left: 30px;
 	font-size: 28px;
 }
+
 
 #completeScreen .exitWarning .homeIcon {	
 	background: url(../svg/returnToHome-home.svg) no-repeat;
@@ -265,12 +279,26 @@ html, body, .enContentWrap, .frContentWrap  {
 	color: #ffffff;
 }
 
+.returnToButton {
+	float:left; 
+	display:inline-block; 
+	margin-top: 13px;
+	font-size: 24px;
+}
+
+.exitButton {
+	float:left; 
+	display:inline-block; 
+	margin-top: 13px;
+	font-size: 24px;
+}
+
 .divider {
 	display: inline-block;	
 	background: none;
 	padding: 0 15%;
 	margin: 0 auto 20px auto;
-	border-bottom: 1px #CCCCCC solid;
+	border-bottom: 1px solid rgba(255, 255, 255, .4);
 }
 
 #timeoutBox .backToScene .circleArrow span {
@@ -295,18 +323,19 @@ html, body, .enContentWrap, .frContentWrap  {
 	padding: 0;	
 }
 
-#langButton {
+#langButton, a#langButton {
 	font-size: 25px;
 	background: none;
 	color: #ffffff;
 	display:inline-block;
 	
 	position: absolute;
-	right: 25px;
-	bottom: 25px;
+	right: 15px;
+	bottom: 10px;
 	z-index: 9999;
 	font-family: gotham-med;
-	padding: 10px 10px;	
+	padding: 10px 10px;
+	text-decoration: none;
 }
 
 
@@ -317,6 +346,7 @@ html, body, .enContentWrap, .frContentWrap  {
 	background-color:#26a9b9;
 	background-image:url(../images/bg-survey_background.png);
 	background-repeat: no-repeat; 
+
 	
 }
 
@@ -393,6 +423,12 @@ html, body, .enContentWrap, .frContentWrap  {
 
 #surveyForm input[type="radio"], #surveyForm input[type="text"] {
 		margin: 0px 0 0px 0;
+}
+
+#surveyForm input[type="text"]:focus {
+	background-color: #262262;
+	padding: 5px;
+	margin-top: 3px;
 }
 
 #surveyForm input[type="radio"] {
@@ -504,3 +540,7 @@ html, body, .enContentWrap, .frContentWrap  {
 	margin: 0;
 	overflow: hidden;
 }
+
+
+:focus { outline: none; }
+

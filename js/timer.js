@@ -6,7 +6,7 @@ var timeOutCounter;
 function timerStart()
 	{
 		countDownToTimeoutStop();
-		timeOutCounter=setTimeout(timerEnd, 60000);
+		timeOutCounter=setTimeout(timerEnd, 120000);
 	}
 
 function timerStop()
@@ -19,7 +19,7 @@ function timerReset()
 	{
 		countDownToTimeoutStop();
 		clearTimeout(timeOutCounter);
-		timeOutCounter=setTimeout(timerEnd, 60000);
+		timeOutCounter=setTimeout(timerEnd, 120000);
 	}
 	
 function timerEnd()	
@@ -44,7 +44,8 @@ function countDownToTimeout()
 		window.countDownCount = window.countDownCount-1;
 		$('.countDownTimer').html(window.countDownCount);
 		
-		if (window.countDownCount<0) {
+		if (window.countDownCount<1) {
+			appTimeOut();
 			document.getElementById('contentContainer').src = "language_select.html";			
 		}
 	}

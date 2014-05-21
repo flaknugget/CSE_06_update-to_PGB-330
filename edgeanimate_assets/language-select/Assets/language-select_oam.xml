@@ -9,11 +9,13 @@
   <icon src="images/Poster.png" width="1280" height="683" />
 
   <require type="other" src="language-select.html" />
+  <require type="other" src="images/preLoader.gif" />
+  <require type="other" src="images/preloader1.gif" />
 
   <require type="javascript" src="language-select_edge.js" />
   <require type="javascript" src="language-select_edgeActions.js" />
   <require type="javascript" src="language-select_edgePreload.js" />
-  <require type="javascript" src="edge_includes/edge.2.0.0.min.js" />
+  <require type="javascript" src="edge_includes/edge.2.0.1.min.js" />
   <require type="javascript" src="edge_includes/jquery-1.7.1.min.js" />
 
   <require type="image" src="images/csec-languageSceneBackground.jpg" />

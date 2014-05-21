@@ -1,31 +1,25 @@
 
 var toggleMainMenu="false";(function($,Edge,compId){var Composition=Edge.Composition,Symbol=Edge.Symbol;
 //Edge symbol: 'stage'
-(function(symbolName){Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",750,function(sym,e){sym.stop();});
+(function(symbolName){Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){sym.stop();});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",2230,function(sym,e){sym.stop();});
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1480,function(sym,e){sym.stop();});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_subIcon3_label}","click",function(sym,e){});
+Symbol.bindElementAction(compId,symbolName,"${_Stage}","touchend",function(sym,e){top.timerReset();});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){});
+Symbol.bindElementAction(compId,symbolName,"${_surveyIcon_smb}","click",function(sym,e){window.open("../../../en_survey.html","contentContainer");top.enMenuSurveyClick();});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_subIcon1}","click",function(sym,e){window.open("../../../en_airport_sequence.html","contentContainer");});
+Symbol.bindElementAction(compId,symbolName,"${_quizIcon_smb}","click",function(sym,e){window.open("../../../en_interactiveQuiz.html","contentContainer");top.enMenuQuizClick();});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_scenario_Btn}","click",function(sym,e){if(toggleMainMenu=="false"){toggleMainMenu="true";sym.play();}else if(toggleMainMenu=="true"){toggleMainMenu="false";sym.playReverse();}});
+Symbol.bindElementAction(compId,symbolName,"${_scenarioIcon2}","click",function(sym,e){if(toggleMainMenu=="false"){toggleMainMenu="true";sym.play();}else if(toggleMainMenu=="true"){toggleMainMenu="false";sym.playReverse();}});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_subIcon1_label_smb}","click",function(sym,e){window.open("../../../en_airport_sequence.html","contentContainer");});
+Symbol.bindElementAction(compId,symbolName,"${_subIcon2_label_smb}","click",function(sym,e){});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_Stage}","touchend",function(sym,e){});
+Symbol.bindElementAction(compId,symbolName,"${_hotel-button}","click",function(sym,e){window.open("../../../en_hotel_sequence.html","contentContainer");top.enMenuTravelClick();});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_surveyIcon_smb}","click",function(sym,e){window.open("../../../en_survey.html","contentContainer");});
+Symbol.bindElementAction(compId,symbolName,"${_social-media-button}","click",function(sym,e){window.open("../../../en_social-media_sequence.html","contentContainer");top.enMenuSocialMediaClick();});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_subIcon2_label_smb}","click",function(sym,e){window.open("../../../en_social-media_sequence.html","contentContainer");});
-//Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_subIcon2}","click",function(sym,e){window.open("../../../en_social-media_sequence.html","contentContainer");});
-//Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_Stage}","click",function(sym,e){top.timerReset();});
-//Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_quizIcon_smb}","click",function(sym,e){window.open("../../../en_quizform.html","contentContainer");});
+Symbol.bindElementAction(compId,symbolName,"${_airport-button}","click",function(sym,e){window.open("../../../en_airport_sequence.html","contentContainer");top.enMenuWifiClick();});
 //Edge binding end
 })("stage");
 //Edge symbol end:'stage'
@@ -71,4 +65,16 @@ Symbol.bindElementAction(compId,symbolName,"${_quizIcon_smb}","click",function(s
 //Edge symbol: 'subIcon1_label_smb'
 (function(symbolName){})("subIcon1_label_smb");
 //Edge symbol end:'subIcon1_label_smb'
+
+//=========================================================
+
+//Edge symbol: 'scene-title'
+(function(symbolName){})("scene-title");
+//Edge symbol end:'scene-title'
+
+//=========================================================
+
+//Edge symbol: 'Preloader'
+(function(symbolName){})("Preloader");
+//Edge symbol end:'Preloader'
 })(jQuery,AdobeEdge,"EDGE-2548275");

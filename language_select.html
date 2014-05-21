@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
         <head>
-        <title>CSEC Interface</title>
+        <title>CSE Interface</title>
         
         <meta charset="utf-8">
         
@@ -30,14 +30,16 @@
 			function gapOnlyDeviceReady() {				
 				// Initialize Google Analytics for the app
 				gaPlugin = window.plugins.gaPlugin;
-				gaPlugin.init(nativePluginInitHandler, nativePluginErrorHandler, "UA-43302718-1", 60);
+				gaPlugin.init(nativePluginInitHandler, nativePluginErrorHandler, "UA-44595827-1", 60);
+				
 				LanguageSelectPage();
 				
 				nonGapDeviceReady();
 			}
 			
 			function nonGapDeviceReady() {
-				top.timerStop();				
+				top.timerStop();
+				top.englishSelected();				
 			}
 		
         </script>

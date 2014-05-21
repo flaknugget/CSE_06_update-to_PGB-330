@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+			<head>
+			<title>CSE Interface</title>
+			<meta charset="utf-8">
+
+			<!-- only link the jQuery Files if they are required -->
+
+			<!-- <link href="css/csec-v01.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/jquery.mobile.structure-1.3.2.min.css" rel="stylesheet" type="text/css"/> -->
+			<link href="css/cse-style.css" rel="stylesheet" type="text/css"/>
+			<script type="text/javascript" charset="utf-8" src="js/jquery-1.9.1.min.js"></script>
+			<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+			<script type="text/javascript" charset="utf-8" src="GAPlugin.js"></script><!-- Google Analytics Plugin File - Inserted at compile time -->
+			<script type="text/javascript" charset="utf-8" src="js/ganalytics.js"></script><!-- custom scripts for event and page tracking -->
+			<script type="text/javascript">
+		
+		
+		
+		document.addEventListener('deviceready', gapOnlyDeviceReady, false);
+			
+			<!-- fires device ready functions - only works within browser - is ignored on a device -->
+			$( document ).ready(function() {
+				nonGapDeviceReady();
+			});
+			
+			
+			
+			
+			<!-- device ready fuctions that can only run on the device happen here, then common device ready functions are fired -->
+			function gapOnlyDeviceReady() {				
+				// Initialize Google Analytics for the app
+				gaPlugin = window.plugins.gaPlugin;
+				gaPlugin.init(nativePluginInitHandler, nativePluginErrorHandler, "UA-44595827-1", 60);
+				frClickableTravelPage();
+				top.timerStop();
+				top.timerStart();
+				nonGapDeviceReady();
+			}
+			
+			function nonGapDeviceReady() {
+				$("#langButton").hide();
+				$("html").click(top.timerReset);				
+			}
+			
+			<!-- functions for controlling the close/return to menu buttons -->
+			
+			function hideClose() {
+						$("#langButton").fadeIn(300);
+					};
+					
+			function showClose() {
+						$("#langButton").fadeIn(300);
+					};
+			
+			</script>
+			</head>
+
+			<body class="edgeContainer" style="overflow:hidden;">
+                <a id="langButton" href="en_main-menu.html">ENGLISH</a>
+                <!-- <div id="exitScreen" style="background-image:url(images/bg-social_background_close.png); background-repeat: no-repeat;">
+                              <p class="warningMessage" style="background-color: #0b9444;">RETURN TO MAIN MENU?</p>
+                              <div class="divider">&nbsp;</div>
+                              <div class="exitWarning"> <span class="circleArrow"><span style="float:left; display:inline-block; margin-top: 10px;">BACK TO SCENE</span></span> <a href="en_main-menu.html" style="color: #ffffff;"><span class="homeIcon"><span style="float:left; display:inline-block; margin-top: 10px;">EXIT</span></span></a></div>
+                            </div>
+                </div> -->
+<object id="EdgeID" type="text/html" width="1280" height="683" data-dw-widget="Edge" data="edgeanimate_assets/fr_HotelSequence_WorkingFile/Assets/fr_HotelSequence_WorkingFile.html">
+            </object>
+</body>
+</html>

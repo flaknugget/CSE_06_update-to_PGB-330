@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <widget xmlns = "http://www.w3.org/ns/widgets"
     xmlns:gap = "http://phonegap.com/ns/1.0"
-    id        = "com.banfield.csec.v06"
+    id        = "com.banfield.cse.v09.tab01"
     version   = "1.0.0">
 
-<name>CSEC Beta v06</name>
+<name>CSE 01 - PGB 3.3.0</name>
 
 <description>
-CSEC Project v06
+CSE 01 - PGB 3.3.0
 </description>
 
-<author href="https://banfieldagency.com" email="padamson@bsl.com">
+<author href="http://banfieldagency.com" email="padamson@bsl.com">
 Peter Adamson
 </author>
 
@@ -48,7 +48,7 @@ Peter Adamson
     <preference name="android-installLocation"    value="auto" />           <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
 
     <!-- Plugins can also be added here. -->
-	<gap:plugin name="com.adobe.plugins.gaplugin" />
+	<gap:plugin name="org.apache.cordova.device" />
     <!--
         <gap:plugin name="Example" />
         A list of available plugins are available at https://build.phonegap.com/docs/plugins

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 			<head>
-			<title>CSEC Interface</title>
+			<title>CSE Interface</title>
 			<meta charset="utf-8">
 
 			<!-- only link the jQuery Files if they are required -->
@@ -31,7 +31,7 @@
 			function gapOnlyDeviceReady() {				
 				// Initialize Google Analytics for the app
 				gaPlugin = window.plugins.gaPlugin;
-				gaPlugin.init(nativePluginInitHandler, nativePluginErrorHandler, "UA-43302718-1", 60);
+				gaPlugin.init(nativePluginInitHandler, nativePluginErrorHandler, "UA-44595827-1", 60);
 				enClickableSocialMediaPage();
 				top.timerStop();
 				top.timerStart();
@@ -39,34 +39,17 @@
 			}
 			
 			function nonGapDeviceReady() {
-				$("#exitScreen").hide();
-				$("#completeScreen").hide();
 				$("#langButton").hide();
-				$("#closeButton").click(closeOverlay);
-				$(".circleArrow").click(backtoScene);
 				$("html").click(top.timerReset);				
 			}
 			
 			<!-- functions for controlling the close/return to menu buttons -->
-			function backtoScene() {
-						$("#closeButton").fadeIn(300);
-						$("#langButton").fadeIn(300);
-						$("#exitScreen").fadeOut(300);
-					};
 			
-			function closeOverlay() {
-						$("#closeButton").fadeOut(300);
-						$("#langButton").fadeOut(300);
-						$("#exitScreen").fadeIn(300);
-					};
-					
 			function hideClose() {
-						$("#closeButton").fadeOut(300);
 						$("#langButton").fadeIn(300);
 					};
 					
 			function showClose() {
-						$("#closeButton").fadeIn(300);
 						$("#langButton").fadeIn(300);
 					};
 			
@@ -74,14 +57,13 @@
 			</head>
 
 			<body class="edgeContainer" style="overflow:hidden;">
-<img src="images/close-button.png" id="closeButton">
-<div id="langButton">FRANÇAIS</div>
-<div id="exitScreen" style="background-image:url(images/bg-social_background_close.png); background-repeat: no-repeat;">
+<a id="langButton" href="fr_main-menu.html">FRANÇAIS</a>
+<!-- <div id="exitScreen" style="background-image:url(images/bg-social_background_close.png); background-repeat: no-repeat;">
               <p class="warningMessage" style="background-color: #bf1e2e;">RETURN TO MAIN MENU?</p>
               <div class="divider">&nbsp;</div>
               <div class="exitWarning"> <span class="circleArrow"><span style="float:left; display:inline-block; margin-top: 10px;">BACK TO SCENE</span></span> <a href="en_main-menu.html" style="color: #ffffff;"><span class="homeIcon"><span style="float:left; display:inline-block; margin-top: 10px;">EXIT</span></span></a></div>
             </div>
-</div>
+</div> -->
 <object id="EdgeID" type="text/html" width="1280" height="683" data-dw-widget="Edge" data="edgeanimate_assets/socialMediaSequence_en/Assets/social-media_sequence_v02.html">
             </object>
 </body>

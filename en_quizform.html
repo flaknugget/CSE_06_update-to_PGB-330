@@ -28,8 +28,7 @@
 			function gapOnlyDeviceReady() {				
 				// Initialize Google Analytics for the app
 				gaPlugin = window.plugins.gaPlugin;
-				gaPlugin.init(nativePluginInitHandler, nativePluginErrorHandler, "UA-43302718-1", 30);				
-				enSurveyPage();	
+				gaPlugin.init(nativePluginInitHandler, nativePluginErrorHandler, "UA-44595827-1", 30);		
 				
 				top.timerStop();
 				top.timerStart();	
@@ -46,7 +45,8 @@
 				$("#exitScreen").hide();
 				$("#completeScreen").hide();
 				
-				
+				$("#quizName").click(function () {location.href = "#surveyForm";});
+				$("#quizEmail").click(function () {location.href = "#quizEmailAnchor";});
 				
 				
 				$("#closeButton").click(
@@ -80,9 +80,10 @@
 					
 					 $("#survey-wrap").fadeOut(300);
 					 $("#completeScreen").fadeIn(300);
-					 $("#closeButton").fadeOut(300);
-					 $("#langButton").fadeOut(300);
-					 outputQuizForm();	
+					/* $("#closeButton").fadeOut(300);
+					 $("#langButton").fadeOut(300); */
+					 outputQuizForm();
+					 enQuizFinishedClick();	
 					e.stopPropagation();
     				e.preventDefault();
 				});
@@ -99,22 +100,23 @@
 	</head>
 	<body id="quizform-body">
 <img src="images/close-button.png" id="closeButton">
-<div id="langButton">FRANÇAIS</div>
+<a id="langButton" href="fr_main-menu.html">FRANÇAIS</a>
 <div id="exitScreen" style="background-image:url(images/bg-quiz_background_close.png); background-repeat: no-repeat;">
-      <p class="warningMessage" style="margin-top: 250px;">RETURN TO MAIN MENU</p>
-      <div class="divider">&nbsp;</div>
-      <div class="exitWarning"><span class="circleArrow"><span style="float:left; display:inline-block; margin-top: 10px;">BACK TO SCENE</span></span> <a href="en_main-menu.html" style="color: #ffffff;"><span class="homeIcon"><span style="float:left; display:inline-block; margin-top: 10px;">EXIT</span></span></a></div>
+      <p class="warningMessage" style="font-size: 30px;margin-top: 250px;">ARE YOU SURE YOU WANT TO EXIT THE QUIZ?</p>
+              <div class="divider">&nbsp;</div>
+              <div class="exitWarning"> <span class="circleArrow"><span class="returnToButton">RETURN TO QUIZ</span></span> <a href="en_main-menu.html" style="color: #ffffff;"><span class="homeIcon"><span class="exitButton">EXIT</span></span></a></div>
     </div>
 </div>
 <div id="completeScreen">
-      <p class="warningMessage" style="margin-top: 260px;">PLEASE PROVIDE YOUR INFO</p>
+      <p class="warningMessage" style="margin-top: 240px;">THANK YOU FOR TAKING OUR QUIZ</p>
+      <p style="text-align:center;">Relevant publications will be e-mailed to you at a later date</p>
       <div class="divider">&nbsp;</div>
-      <div class="exitWarning"><a href="en_main-menu.html" style="color: #ffffff;"><span class="homeIcon"><span style="float:left; display:inline-block; margin-top: 10px;">RETURN TO MAIN MENU</span></span></a> </div>
-      <p align="center"><span id="output"></span></p>
+      <div class="exitWarning"><a href="en_main-menu.html" style="color: #ffffff;"><span class="homeIcon" style="width: 380px;"><span class="exitButton">RETURN TO MAIN MENU</span></span></a> </div>
+      <!-- <p align="center"><span id="output"></span></p> -->
     </div>
 <div id="survey-bg">
       <div id="survey-wrap" style="padding-top: 20px;padding-bottom: 0;">
-    <p class="warningMessage">receive more information</p>
+    <p class="warningMessage">RECEIVE MORE INFORMATION</p>
     <p>Are you a Government of Canada employee?  Would you like to receive notifications of new IT Security publications?  Leave your name and email address and we will add you to our distribution list.</p>
     <form class="surveyForm" id="surveyForm">
           <div style="float:left;">
@@ -124,7 +126,7 @@
             <input name="quizName" id="quizName" placeholder="" value="" type="text" style="width: 400px;">
           </div>
         
-      <div class="clear" style="padding-top: 20px;">
+      <div class="clear" style="padding-top: 20px;" id="quizEmailAnchor">
       <div style="float:left;">
             <label for="quizEmail" style="float:left; margin-top: 7px;font-family: gotham-med;">Email address:</label>
           </div>
@@ -156,7 +158,7 @@
             </fieldset>
          
           <div id="outputBtn" style="margin-top: 30px;"><span class="thumbsUp" style="width: 110px;"><span style="float:left; display:inline-block; margin-top: 18px;">SUBMIT</span></span></div>
-        
+        <p style="clear:both; padding-bottom: 100px;">&nbsp;</p>
         </form>
   </div>
     </div>

@@ -135,7 +135,6 @@
 											
 											window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFSquiz, fail);
 											
-											alert("quiz info submitted");
 											
 											
 			}
@@ -198,6 +197,8 @@
 												q01workSector = q01workSector + ': ' + q01WorkSectorIndustry;
 											}
 											
+											
+											
 											if (typeof q02workField==='undefined') {
 												q02workField = "&nbsp;";
 											}		
@@ -213,6 +214,8 @@
 											if (q03workPositionOther.match(/\S/) && q03workPosition=="Other") {
 												q03workPosition = q03workPosition + ': ' + q03workPositionOther;
 											}
+											
+											
 											
 											if (typeof q08usefulPubs==='undefined') {
 												q08usefulPubs = "&nbsp;";

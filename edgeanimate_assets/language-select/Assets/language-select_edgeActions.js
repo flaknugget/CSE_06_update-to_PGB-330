@@ -3,7 +3,9 @@
 //Edge symbol: 'stage'
 (function(symbolName){Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",500,function(sym,e){});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_chooseEnglish_btn_smb}","click",function(sym,e){window.open("../../../en_main-menu.html","contentContainer");});
+Symbol.bindElementAction(compId,symbolName,"${_chooseEnglish_btn_smb}","click",function(sym,e){window.open("../../../en_main-menu.html","contentContainer");top.enMenu();});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_chooseFrench_btn_smb}","click",function(sym,e){window.open("../../../fr_main-menu.html","contentContainer");top.frMenu();});
 //Edge binding end
 })("stage");
 //Edge symbol end:'stage'

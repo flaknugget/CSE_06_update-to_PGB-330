@@ -9,9 +9,10 @@
   <icon src="images/Poster.png" width="1280" height="683" />
 
   <require type="other" src="AirportSequence_WorkingFile.html" />
-  <require type="other" src="images/._CSE_Airport_Flattened.svg" />
-  <require type="other" src="images/._CSE_Airport_Layered.svg" />
-  <require type="other" src="images/._CSE_Airport_Layers_Wifi.svg" />
+  <require type="other" src="images/._airport-scene-norm.gif" />
+  <require type="other" src="images/airport-scene-norm.gif" />
+  <require type="other" src="images/cesc-airport-animation-2.gif" />
+  <require type="other" src="images/csec-airport-animation.gif" />
   <require type="other" src="images/CSE_Airport_Flattened.svg" />
   <require type="other" src="images/CSE_Airport_Flattened2.svg" />
   <require type="other" src="images/CSE_Airport_Layered.svg" />
@@ -26,24 +27,12 @@
   <require type="javascript" src="edge_includes/edge.2.0.1.min.js" />
   <require type="javascript" src="edge_includes/jquery-1.7.1.min.js" />
 
-  <require type="image" src="images/._beginBtn_icon.png" />
-  <require type="image" src="images/._CSE_Airport_flattened.jpg" />
-  <require type="image" src="images/._CSE_Airport_Layered-01.png" />
-  <require type="image" src="images/._sceneExit_btn.jpg" />
-  <require type="image" src="images/._selectorIcons_atom_icon.png" />
-  <require type="image" src="images/._selectorIcons_binoc_icon.png" />
-  <require type="image" src="images/._selectorIcons_clicked_atom_icon.png" />
-  <require type="image" src="images/._selectorIcons_clicked_binoc_icon.png" />
-  <require type="image" src="images/._selectorIcons_clicked_finder_icon.png" />
-  <require type="image" src="images/._selectorIcons_clicked_icon.png" />
-  <require type="image" src="images/._selectorIcons_clicked_unlock_icon.png" />
-  <require type="image" src="images/._selectorIcons_clicked_wifi_icon.png" />
-  <require type="image" src="images/._selectorIcons_comp_icon.png" />
-  <require type="image" src="images/._selectorIcons_finder_icon.png" />
-  <require type="image" src="images/._selectorIcons_unlock_icon.png" />
-  <require type="image" src="images/._selectorIcons_wifi_icon.png" />
+  <require type="image" src="images/._cse-loader-gif.jpg" />
+  <require type="image" src="images/airport-scene-blurred.png" />
+  <require type="image" src="images/airport-scene-norm.png" />
   <require type="image" src="images/beAware_iconSet.png" />
   <require type="image" src="images/beginBtn_icon.png" />
+  <require type="image" src="images/cse-loader-gif.jpg" />
   <require type="image" src="images/CSE_Airport_flattened.jpg" />
   <require type="image" src="images/CSE_Airport_Layered-01.png" />
   <require type="image" src="images/CSE_Airport_newestVersion.jpg" />
@@ -52,6 +41,7 @@
   <require type="image" src="images/everyone_icon.png" />
   <require type="image" src="images/exitBtn-Main.jpg" />
   <require type="image" src="images/goBack_icon.png" />
+  <require type="image" src="images/goHome_icon (1).png" />
   <require type="image" src="images/goHome_icon.png" />
   <require type="image" src="images/itPersonnel_icon.png" />
   <require type="image" src="images/Poster.png" />

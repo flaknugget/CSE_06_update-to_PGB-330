@@ -1,9 +1,9 @@
 
 (function($,Edge,compId){var Composition=Edge.Composition,Symbol=Edge.Symbol;
 //Edge symbol: 'stage'
-(function(symbolName){Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){sym.stop();});
+(function(symbolName){Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",0,function(sym,e){sym.$("Title_BodyText").html("Meet <span style='font-family: GothamMedium;'>Peter Smith</span>, a government employee who frequently uses social media. Observe his Facebook page, Twitter feed and LinkedIn profile to spot information he has posted that could be used to craft a malicious e-mail and compromise a government network.");sym.stop();parent.showClose();});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_Title_BoxHoldCopy}","click",function(sym,e){sym.play();parent.showClose();});
+Symbol.bindElementAction(compId,symbolName,"${_Title_BoxHoldCopy}","click",function(sym,e){sym.play();});
 //Edge binding end
 Symbol.bindElementAction(compId,symbolName,"${_Stage}","click",function(sym,e){top.timerReset();});
 //Edge binding end
@@ -35,9 +35,9 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",39100,function(sym
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",50000,function(sym,e){sym.stop();sym.getSymbol("view-best-practices-button").play("waiting");});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_view-best-practices-button}","click",function(sym,e){sym.getSymbol("bet-practices-overlay").play("into-end-scene-practices");parent.hideClose();});
+Symbol.bindElementAction(compId,symbolName,"${_view-best-practices-button}","click",function(sym,e){sym.getSymbol("bet-practices-overlay").play("close-end-screen");parent.hideClose();});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",48000,function(sym,e){sym.getSymbol("bet-practices-overlay").play("hideText");});
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",48000,function(sym,e){sym.getSymbol("bet-practices-overlay").play("end-screen");});
 //Edge binding end
 })("stage");
 //Edge symbol end:'stage'
@@ -225,11 +225,11 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",2000,function(sym,
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",10500,function(sym,e){sym.stop();});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_ViewBestPractices_text}","click",function(sym,e){sym.play("overlay-begin-mid-scene");});
+Symbol.bindElementAction(compId,symbolName,"${_ViewBestPractices_text}","click",function(sym,e){sym.play("overlay-begin-mid-scene");top.enSocialMediaBestPracticeClick();});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_Rectangle}","click",function(sym,e){sym.setVariable("next-practice-step","it");sym.play();});
+Symbol.bindElementAction(compId,symbolName,"${_it-practitioners}","click",function(sym,e){sym.setVariable("next-practice-step","it");sym.play();top.enSocialMediaBestPracticeITPractionersClick();});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",2500,function(sym,e){var nextScene=sym.getVariable("next-practice-step");if(nextScene=="it"){sym.play("it-practices-mid");};if(nextScene=="managers"){sym.play("manager-practices-mid");};if(nextScene=="everyone"){sym.play("everyone-practices-mid");};if(nextScene=="back"){sym.play();};});
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",2500,function(sym,e){var nextScene=sym.getVariable("next-practice-step");if(nextScene=="it"){sym.play("it-practices-mid");};if(nextScene=="managers"){sym.play("manager-practices-mid");};if(nextScene=="everyone"){sym.play("everyone-practices-mid");};if(nextScene=="back"){sym.play();};if(nextScene=="exit"){window.open("../../../en_main-menu.html","contentContainer");sym.stop();};});
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",13000,function(sym,e){sym.stop();});
 //Edge binding end
@@ -237,37 +237,51 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",15000,function(sym
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",17000,function(sym,e){sym.stop();});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_RectangleCopy}","click",function(sym,e){sym.setVariable("next-practice-step","managers");sym.play();});
+Symbol.bindElementAction(compId,symbolName,"${_managers}","click",function(sym,e){sym.setVariable("next-practice-step","managers");sym.play();top.enSocialMediaBestPracticeManagersClick();});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_RectangleCopy2}","click",function(sym,e){sym.setVariable("next-practice-step","everyone");sym.play();});
+Symbol.bindElementAction(compId,symbolName,"${_everyone}","click",function(sym,e){sym.setVariable("next-practice-step","everyone");sym.play();top.enSocialMediaBestPracticeGeneralPublicClick();});
 //Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_RectangleCopy3}","click",function(sym,e){sym.setVariable("next-practice-step","back");sym.play();});
+Symbol.bindElementAction(compId,symbolName,"${_back-to-scene}","click",function(sym,e){sym.setVariable("next-practice-step","back");sym.play();});
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",3000,function(sym,e){sym.stop("start");});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",13500,function(sym,e){sym.play("mid-scene-practices");});
-//Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",15500,function(sym,e){sym.play("mid-scene-practices");});
-//Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",17500,function(sym,e){sym.play("mid-scene-practices");});
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",13500,function(sym,e){var nextScene=sym.getVariable("next-practice-step");if(nextScene=="exit"){window.open("../../../en_main-menu.html","contentContainer");sym.stop();}else{sym.play("mid-scene-practices");};});
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",19000,function(sym,e){sym.stop();});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",19500,function(sym,e){sym.play("end-scene-practices");});
-//Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",21000,function(sym,e){sym.stop();});
-//Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",21500,function(sym,e){sym.play("end-scene-practices");});
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",23000,function(sym,e){sym.stop();});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",23500,function(sym,e){sym.play("end-scene-practices");});
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",11000,function(sym,e){var nextScene=sym.getVariable("next-practice-step");if(nextScene=="it"){sym.play("it-practices-end");};if(nextScene=="managers"){sym.play("manager-practices-end");};if(nextScene=="everyone"){sym.play("everyone-practices-end");};if(nextScene=="exit"){window.open("../../../en_main-menu.html","contentContainer");sym.stop();};});
 //Edge binding end
-Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",11000,function(sym,e){var nextScene=sym.getVariable("next-practice-step");if(nextScene=="it"){sym.play("it-practices-end");};if(nextScene=="managers"){sym.play("manager-practices-end");};if(nextScene=="everyone"){sym.play("everyone-practices-end");};if(nextScene=="back"){window.open("../../../en_main-menu.html","contentContainer");sym.stop();};});
-//Edge binding end
-Symbol.bindElementAction(compId,symbolName,"${_Rectangle2}","click",function(sym,e){sym.play();});
+Symbol.bindElementAction(compId,symbolName,"${_back-to-best-practices}","click",function(sym,e){sym.play();});
 //Edge binding end
 Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",500,function(sym,e){sym.stop();});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_exitBtn-Main}","click",function(sym,e){sym.play("overlay-begin-mid-scene");});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_exit}","click",function(sym,e){sym.setVariable("next-practice-step","exit");sym.play();});
+//Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",15500,function(sym,e){if(nextScene=="exit"){window.open("../../../en_main-menu.html","contentContainer");sym.stop();}else{sym.play("mid-scene-practices");};});
+//Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",15500,function(sym,e){var nextScene=sym.getVariable("next-practice-step");if(nextScene=="exit"){window.open("../../../en_main-menu.html","contentContainer");sym.stop();}else{sym.play("mid-scene-practices");};});
+//Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",17500,function(sym,e){var nextScene=sym.getVariable("next-practice-step");if(nextScene=="exit"){window.open("../../../en_main-menu.html","contentContainer");sym.stop();}else{sym.play("mid-scene-practices");};});
+//Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",19500,function(sym,e){var nextScene=sym.getVariable("next-practice-step");if(nextScene=="exit"){window.open("../../../en_main-menu.html","contentContainer");sym.stop();}else{sym.play("end-scene-practices");};});
+//Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",21500,function(sym,e){var nextScene=sym.getVariable("next-practice-step");if(nextScene=="exit"){window.open("../../../en_main-menu.html","contentContainer");sym.stop();}else{sym.play("end-scene-practices");};});
+//Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",23500,function(sym,e){var nextScene=sym.getVariable("next-practice-step");if(nextScene=="exit"){window.open("../../../en_main-menu.html","contentContainer");sym.stop();}else{sym.play("end-scene-practices");};});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_exitBtn-MainCopy}","click",function(sym,e){sym.play("into-end-scene-practices");});
+//Edge binding end
+Symbol.bindElementAction(compId,symbolName,"${_ViewBestPractices_textCopy}","click",function(sym,e){sym.play("into-end-scene-practices");});
+//Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",5500,function(sym,e){sym.play("into-end-scene-practices");});
+//Edge binding end
+Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",5000,function(sym,e){sym.stop();});
 //Edge binding end
 })("bet-practices-overlay");
 //Edge symbol end:'bet-practices-overlay'
@@ -319,4 +333,10 @@ Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",500,function(sym,e
 //Edge symbol: 'best-practices_everyone'
 (function(symbolName){})("best-practices_everyone");
 //Edge symbol end:'best-practices_everyone'
+
+//=========================================================
+
+//Edge symbol: 'Preloader'
+(function(symbolName){})("Preloader");
+//Edge symbol end:'Preloader'
 })(jQuery,AdobeEdge,"EDGE-8632800");

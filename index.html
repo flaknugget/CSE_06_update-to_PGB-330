@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
 		<head>
-		<title>CSEC Interface</title>
+		<title>CSE Interface</title>
 		<meta charset="utf-8">
 		<link href="css/cse-style.css" rel="stylesheet" type="text/css"/>
 		<script type="text/javascript" charset="utf-8" src="js/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript" charset="utf-8" src="phonegap.js"></script><!-- phonegap.js - Inserted at compile time -->
 		<script type="text/javascript" charset="utf-8" src="GAPlugin.js"></script><!-- Google Analytics Plugin File - Inserted at compile time -->
 		<script type="text/javascript" charset="utf-8" src="js/ganalytics.js"></script><!-- custom scripts for event and page tracking -->
-		<script type="text/javascript" charset="utf-8" src="js/timer.js"></script><!-- custom time-out timer scripts -->
+		<script type="text/javascript" charset="utf-8" src="js/timer.js"></script><!--  custom time-out timer scripts -->
 
 		<script type="text/javascript">
+			
+			
 		
+			
 			<!-- fires device ready functions - only works within phonegap -->
 			document.addEventListener('deviceready', gapOnlyDeviceReady, false);
 			
@@ -24,7 +27,7 @@
 			function gapOnlyDeviceReady() {				
 				// Initialize Google Analytics for the app
 				gaPlugin = window.plugins.gaPlugin;
-				gaPlugin.init(nativePluginInitHandler, nativePluginErrorHandler, "UA-43302718-1", 30);
+				gaPlugin.init(nativePluginInitHandler, nativePluginErrorHandler, "UA-44595827-1", 30);
 				
 				// Track the opening of the app
 				openAppPage();			
@@ -37,18 +40,25 @@
 				// hides the time-out warning container
 				$('#timeoutBox').hide();
 				$('#timeoutBox').click(timerReset);
-				
 				// hides the time-out warning container
 				
-				
-				// $('#timeoutBox').click(timerReset);	
 				
 				
 					
 			}
 			
+			<!-- if english is selected change fip and timer wording to english -->
+			function englishSelected() {
+				$("#fip-container").attr("class", "fip");
+				$("#timeoutBox").html("<p class='warningMessage' style='background-color: #000000; margin-top: 220px;'>WOULD YOU LIKE TO CONTINUE?</p><p class='timerCount'><span class='countDownTimer'>20</span> seconds...</p><p class='backToScene'><span class='circleArrow'><span>BACK TO SCENE</span></span></p>");
+			}
 			
 			
+			<!-- if french is selected change fip and timer wording to french -->
+			function frenchSelected() {
+				$("#fip-container").attr("class", "fip-fr");
+				$("#timeoutBox").html("<p class='warningMessage' style='background-color: #000000; margin-top: 220px;'>ATTENTION : TEMPS ÉCOULÉ!</p><p class='timerCount'><span class='countDownTimer'>20</span> secondes...</p><p class='backToScene'><span class='circleArrow' style='width: 430px;'><span>RETOURNER À LA SCÈNE</span></span></p>");
+			}
 			
 				
 		</script>
@@ -58,25 +68,24 @@
 <div data-role="page" style="margin: 0; padding: 0;" class="enContentWrap"> 
           
           <!-- Top Black Bar -->
-          <div id="topbar">
-            <div class="fip"></div>
+          <div class="topbar">
+            <div class="fip" id="fip-container"></div>
           </div>
           
           <!-- Main Content Container -->
           <div class="iframeContainer">
-    <iframe src="language_select.html" id="contentContainer" scrolling="yes" frameborder="0" marginheight="0" seamless name="contentContainer"></iframe>
-  </div>
-      <div id="timeoutBox">
-        <p class="warningMessage" style="background-color: #000000;">WOULD YOU LIKE TO CONTINUE?</p>
-        <p class="timerCount"><span class="countDownTimer">20</span> seconds...</p>
-        <p class="backToScene"><span class="circleArrow"><span>BACK TO SCENE</span></span></p>
+            <iframe src="language_select.html" id="contentContainer" scrolling="yes" frameborder="0" marginheight="0" seamless name="contentContainer"></iframe>
+          </div>
+          
+      <div id="timeoutBox" style="top:65px;">
+      
       </div>
           
           <!-- Bottom Black Bar 
           <div id="bottombar"><span class="bottombarContent"></span></div>
           --> 
           <!-- Slide-out menu content  --> 
-        </div>
+</div>
 <!-- page -->
 </body>
 </html>

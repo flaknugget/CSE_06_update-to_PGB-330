@@ -39,6 +39,8 @@
   <require type="image" src="images/facebook-screen.png" />
   <require type="image" src="images/itPersonnel_icon.png" />
   <require type="image" src="images/linkedin-screen.png" />
+  <require type="image" src="images/next-scene-button_facebook.png" />
+  <require type="image" src="images/next-scene-button_twitter.png" />
   <require type="image" src="images/Poster.png" />
   <require type="image" src="images/practitioner_icon.png" />
   <require type="image" src="images/preLoaderBacking.jpg" />

@@ -28,7 +28,7 @@
 			function gapOnlyDeviceReady() {				
 				// Initialize Google Analytics for the app
 				gaPlugin = window.plugins.gaPlugin;
-				gaPlugin.init(nativePluginInitHandler, nativePluginErrorHandler, "UA-43302718-1", 30);				
+				gaPlugin.init(nativePluginInitHandler, nativePluginErrorHandler, "UA-44595827-1", 30);				
 				enSurveyPage();	
 				
 				top.timerStop();
@@ -99,8 +99,8 @@
 				
 				$("#survey-complete").hide();
 				
-				$("#closeButton").hide();
-				$("#langButton").hide();
+				/* $("#closeButton").hide();
+				$("#langButton").hide(); */
 				
 				
 				function showClose() {					
@@ -183,14 +183,15 @@
 				
 				$('#outputBtn').click(function() {
 					
-					 alert("outPut();");	 
+					 // alert("outPut();");	 
 					 $("#surveyForm").fadeOut(300);
 					 $("#completeScreen").fadeIn(300);
-					 $("#closeButton").fadeOut(300);
-					 $("#langButton").fadeOut(300);
+					 // $("#closeButton").fadeOut(300);
+					 // $("#langButton").fadeOut(300);
 					 outputForm();	
-					e.stopPropagation();
-    				e.preventDefault();
+					 top.enSurveySubmitClick();
+						e.stopPropagation();
+    					e.preventDefault();
 				});
 				
 				
@@ -206,17 +207,17 @@
 	<body id="survey-body">
       
 <img src="images/close-button.png" id="closeButton">
-<div id="langButton">FRANÇAIS</div>
+<a id="langButton" href="fr_main-menu.html">FRANÇAIS</a>
 
 	<div id="exitScreen" style="background-image:url(images/bg-survey_background_close.png); background-repeat: no-repeat;">
-      <p class="warningMessage">RETURN TO MAIN MENU?</p>
+      <p class="warningMessage" style="font-size: 30px;">ARE YOU SURE YOU WANT TO EXIT THE SURVEY?</p>
       <div class="divider">&nbsp;</div>
-      <div class="exitWarning"><span class="circleArrow"><span style="float:left; display:inline-block; margin-top: 10px;">BACK TO SCENE</span></span> <a href="en_main-menu.html" style="color: #ffffff;"><span class="homeIcon"><span style="float:left; display:inline-block; margin-top: 10px;">EXIT</span></span></a></div>
+      <div class="exitWarning"><span class="circleArrow"><span class="returnToButton">RETURN TO SURVEY</span></span> <a href="en_main-menu.html" style="color: #ffffff;"><span class="homeIcon"><span class="exitButton">EXIT</span></span></a></div>
     </div>
 </div>
 <div id="introScreen">
-      <p class="warningMessage">CSEC GTEC 2013 Questionnaire</p>
-      <p>Thank you for visiting CSEC’s exhibit. Your feedback will help us improve
+      <p class="warningMessage">CSE GTEC 2013 SURVEY</p>
+      <p>Thank you for visiting CSE’s exhibit. Your feedback will help us improve
         and prepare for future events.</p>
       <div class="divider">&nbsp;</div>
       <div class="backToScene"><span class="beginButton"><span style="float:left; display:inline-block; margin-top: 10px;">BEGIN</span></span>
@@ -227,15 +228,15 @@
       <p class="warningMessage">THANK YOU FOR COMPLETING OUR SURVEY</p>
       
       <div class="divider">&nbsp;</div>
-      <div class="exitWarning"><a href="en_main-menu.html" style="color: #ffffff;"><span class="homeIcon"><span style="float:left; display:inline-block; margin-top: 10px;">RETURN TO MAIN MENU</span></span></a>
+      <div class="exitWarning"><a href="en_main-menu.html" style="color: #ffffff;"><span class="homeIcon" style="width: 380px;"><span class="exitButton">RETURN TO MAIN MENU</span></span></a>
     </div>
     <p align="center"><span id="output"></span></p>
 </div>
 <div id="survey-bg">
       <div id="survey-wrap">
     <form class="surveyForm" id="surveyForm">
-         <!-- <h1> CSEC GTEC 2013 Questionnaire </h1>
-          <h3> Thank you for visiting CSEC’s exhibit. Your feedback will help us improve
+         <!-- <h1> CSE GTEC 2013 Questionnaire </h1>
+          <h3> Thank you for visiting CSE’s exhibit. Your feedback will help us improve
         and prepare for future events. </h3>
            <h4> Please let us know a little about </h4>
         <div data-role="fieldcontain">
@@ -290,8 +291,8 @@
             <label for="checkbox14"><span class="inputBtn"></span> IT </label>
             <input id="checkbox15" value="IT Security" type="radio" name="q02workField">
             <label for="checkbox15"><span class="inputBtn"></span> IT Security </label>
-            <input id="checkbox16" value="Defence" type="radio" name="q02workField">
-            <label for="checkbox16"><span class="inputBtn"></span> Defence </label>
+            <input id="checkbox16" value="R and D" type="radio" name="q02workField">
+            <label for="checkbox16"><span class="inputBtn"></span> R&amp;D </label>
           </div>
               <div class="radioColB">
               <input id="checkbox17" value="Sales/Marketing" type="radio" name="q02workField">
@@ -314,7 +315,7 @@
             <input id="checkbox26" value="Executive" type="radio" name="q03workPosition">
             <label for="checkbox26"><span class="inputBtn"></span> Executive </label>
             <input id="checkbox27" value="Specialist" type="radio" name="q03workPosition">
-            <label for="checkbox27"><span class="inputBtn"></span> Specialist </label>
+            <label for="checkbox27"><span class="inputBtn"></span> Technical Specialist  </label>
           </div>
               <div class="radioColB">
             <input id="checkbox28" value="Manager" type="radio" name="q03workPosition">
@@ -328,23 +329,22 @@
             </fieldset>
       </div>
           <div style="clear:both;"></div>
-          <h4 id="quetion04anchor"> 4. Are you familiar with the Communications Security Establishment Canada
-        (CSEC), its role and responsibilities? </h4>
+          <h4 id="quetion04anchor"> 4.	Are you familiar with the Communications Security Establishment (CSE), its role and responsibilities? </h4>
           <div id="q04-familiarWithCSEC" class="question">
         <label for="q04familiarWithCSEC" class="error" generated="true"></label>
         <fieldset data-role="controlgroup" data-type="vertical">
-              <input id="radio1" name="q04familiarWithCSEC" value="Yes, I have previous knowledge about CSEC"
+              <input id="radio1" name="q04familiarWithCSEC" value="Yes, I have previous knowledge about CSE"
                 type="radio">
-              <label for="radio1"><span class="inputBtn"></span> Yes, I have previous knowledge about CSEC </label>
-              <input id="radio2" name="q04familiarWithCSEC" value="Yes, I have learned about CSEC at the GTEC exhibit "
+              <label for="radio1"><span class="inputBtn"></span> Yes, I have previous knowledge about CSE </label>
+              <input id="radio2" name="q04familiarWithCSEC" value="Yes, I have learned about CSE at the GTEC exhibit "
                 type="radio">
-              <label for="radio2"><span class="inputBtn"></span> Yes, I have learned about CSEC at the GTEC exhibit </label>
-              <input id="radio3" name="q04familiarWithCSEC" value="No, I am not familiar with CSEC" type="radio">
-              <label for="radio3"><span class="inputBtn"></span> No, I am not familiar with CSEC </label>
+              <label for="radio2"><span class="inputBtn"></span> Yes, I have learned about CSE at the GTEC exhibit </label>
+              <input id="radio3" name="q04familiarWithCSEC" value="No, I am not familiar with CSE" type="radio">
+              <label for="radio3"><span class="inputBtn"></span> No, I am not familiar with CSE </label>
             </fieldset>
       </div>
           <div style="clear:both;"></div>
-          <h4 id="quetion05anchor"> 5. Are you aware of CSEC’s IT Security Learning Centre and the training
+          <h4 id="quetion05anchor"> 5. Are you aware of CSE’s IT Security Learning Centre and the training
         services it provides? </h4>
           <div id="q05-familiarWithCSECLearning" class="question">
         <label for="q05familiarWithCSECLearning" class="error" generated="true"></label>
@@ -360,7 +360,7 @@
             </fieldset>
       </div>
           <div style="clear:both;"></div>
-          <h4 id="quetion06anchor"> 6. Are you interested in a career at CSEC? </h4>
+          <h4 id="quetion06anchor"> 6. Are you interested in a career at CSE? </h4>
           <div id="q06-careerCSEC" class="question">
         <label for="q06careerCSEC" class="error" generated="true"></label>
         <fieldset data-role="controlgroup" data-type="horizontal">
@@ -375,7 +375,7 @@
             </fieldset>
       </div>
           <div style="clear:both;"></div>
-          <h4 id="quetion07anchor"> 7. Have you implemented, or will you consider implementing CSEC’s Top
+          <h4 id="quetion07anchor"> 7. Have you implemented, or will you consider implementing <br>CSE’s Top
         4 Mitigation Measures? </h4>
           <div id="q07-implementCSEC" class="question">
         <label for="q07implementCSEC" class="error" generated="true"></label>
@@ -383,19 +383,24 @@
               <div class="radioColA">
             <input id="radio9" name="q07implementCSEC" value="Yes" type="radio">
             <label for="radio9"><span class="inputBtn"></span> Yes </label>
+            
+            
           </div>
               <div class="radioColB">
             <input id="radio10" name="q07implementCSEC" value="No" type="radio">
             <label for="radio10"><span class="inputBtn"></span> No </label>
+            
           </div>
               <input id="radio11" name="q07implementCSEC" value="I am not familiar with the Top 4 Mitigation Measures "
                 type="radio">
               <label for="radio11"><span class="inputBtn"></span> I am not familiar with the Top 4 Mitigation Measures </label>
+
+              <input id="radio101" name="q07implementCSEC" value="Not applicable" type="radio">
+            <label for="radio101"><span class="inputBtn"></span> Not applicable </label>
             </fieldset>
       </div>
           <div style="clear:both;"></div>
-          <h4 id="quetion08anchor"> 8. If you have browsed CSEC’s IT security publications, do you find them
-        useful for your job function? </h4>
+          <h4 id="quetion08anchor"> 8. If you have browsed CSE’s IT Security publications, do you find them useful for your job function? </h4>
           <div id="q08-usefulPubs" class="question">
         <label for="q08usefulPubs" class="error" generated="true"></label>
         <fieldset data-role="controlgroup" data-type="horizontal">
@@ -422,7 +427,7 @@
         <input name="q08usefulPubsTopics" id="q08usefulPubsTopics" placeholder="" value="" type="text">
       </div>
           <div style="clear:both;"></div>
-          <h4 id="quetion09anchor"> 9. Will you attend a CSEC presentation at GTEC 2013? </h4>
+          <h4 id="quetion09anchor"> 9. Which CSE presentation(s) at GTEC 2013 will/did you attend? </h4>
           <div id="q09-presentations" class="question">
         <fieldset data-role="controlgroup" data-type="vertical">
               <input id="checkbox29" value="Keynote session: Cyber Security and the Government of Canada, presented by John Forster"
@@ -431,24 +436,23 @@
               <span class="inputBtn"></span>
               <div style="margin-left: 40px; margin-top: -25px; line-height: 120%;"><span style="font-family: gotham-med;">Keynote session:</span><br>
             Cyber Security and the Government of Canada, presented
-            by John Forster</strong>
+            by John Forster
             <div style="clear:both;"></div>
-            Wednesday – October 9, location, 9:30 am</div>
+            <span style="font-family: gotham-book-ital;">Wednesday – October 9, 9:30 am</span></div>
               </label>
               <br>
               <input id="checkbox30" value="Concurrent session: Cyber Intrusion Instant Replay"
                 type="checkbox" name="q09presentations">
               <label for="checkbox30">
               <span class="inputBtn"></span>
-              <div style="margin-left: 40px; margin-top: -25px; line-height: 120%;"><span style="font-family: gotham-med;">Concurrent session: Cyber Intrusion Instant Replay</span>
+              <div style="margin-left: 40px; margin-top: -25px; line-height: 120%;">Cyber Intrusion Instant Replay, presented by Scott Jones
             <div style="clear:both;"></div>
-            Wednesday – October
-            9, location, 2:00 pm</div>
+            <span style="font-family: gotham-book-ital;">Wednesday – October 9, 2:00 pm</span></div>
               </label>
             </fieldset>
       </div>
           <div style="clear:both;"></div>
-          <h4 id="quetion10anchor"> 10. The information presented by CSEC at GTEC 2013 was useful. </h4>
+          <h4 id="quetion10anchor"> 10.	The information presented by CSE at GTEC 2013 was useful. </h4>
           <div id="q10-usefulInfo" class="question">
         <label for="q10usefulInfo" class="error" generated="true"></label>
         <fieldset data-role="controlgroup" data-type="horizontal">
@@ -465,7 +469,7 @@
             </fieldset>
       </div>
           <div style="clear:both;"></div>
-          <h4 id="quetion11anchor"> 11. The CSEC booth staff at GTEC 2013 were helpful. </h4>
+          <h4 id="quetion11anchor"> 11.	The CSE booth staff at GTEC 2013 were helpful. </h4>
           <div id="q11-helpfulStaff" class="question">
         <label for="q11helpfulStaff" class="error" generated="true"></label>
         <fieldset data-role="controlgroup" data-type="horizontal">
@@ -533,8 +537,7 @@
             </fieldset>
       </div>
           <div style="clear:both;"></div>
-          <h4 id="quetion15anchor"> 15. Following this event, will you visit the CSEC event website for more
-        information? </h4>
+          <h4 id="quetion15anchor"> 15.	Following this event, will you visit the CSE website for more information?  </h4>
           <div id="q15-visitCSEC" class="question">
         <label for="q15visitCSEC" class="error" generated="true"></label>
         <fieldset data-role="controlgroup" data-type="horizontal"><div class="radioColA">
@@ -545,8 +548,7 @@
             </fieldset>
       </div>
           <div style="clear:both;"></div>
-          <h4 id="quetion16anchor"> 16. Please share with us topics you would be interested in learning about
-        from CSEC, or recommendations for future events. </h4>
+          <h4 id="quetion16anchor"> 16.	Please share with us topics you would be interested in learning about from CSE, or recommendations for future events. </h4>
           <div>
         <textarea name="q16recommendations" id="q16recommendations" placeholder=""></textarea>
       </div>
