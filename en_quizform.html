@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Survey Testing - Home</title>
+	<meta charset="utf-8">
+	<link href="css/cse-style.css" rel="stylesheet" type="text/css"/>
+	<script type="text/javascript" charset="utf-8" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+	<script type="text/javascript" charset="utf-8" src="GAPlugin.js"></script>
+	<!-- <script type="text/javascript" charset="utf-8" src="js/jquery.validate.js"></script> -->
+	<script type="text/javascript" charset="utf-8" src="js/survey-en.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/ganalytics.js"></script>
+	<script type="text/javascript">
+		
+		
+<!-- fires device ready functions - only works within phonegap -->
+			document.addEventListener('deviceready', gapOnlyDeviceReady, false);
+			
+			<!-- fires device ready functions - only works within browser - is ignored on a device -->
+			$( document ).ready(function() {
+				
+				
+				
+				nonGapDeviceReady();
+			});
+			
+			<!-- device ready fuctions that can only run on the device happen here, then common device ready functions are fired -->
+			function gapOnlyDeviceReady() {				
+				// Initialize Google Analytics for the app
+				gaPlugin = window.plugins.gaPlugin;
+				gaPlugin.init(nativePluginInitHandler, nativePluginErrorHandler, "UA-43302718-1", 30);				
+				enSurveyPage();	
+				
+				top.timerStop();
+				top.timerStart();	
+				
+				nonGapDeviceReady();
+			}
+			
+			
+            function nonGapDeviceReady() {
+				
+				
+				// $("#q01WorkSectorIndustry").click(function () {location.href = "#quetion01anchor";});
+				
+				$("#exitScreen").hide();
+				$("#completeScreen").hide();
+				
+				
+				
+				
+				$("#closeButton").click(
+					function () {
+						$("#closeButton").fadeOut(300);
+						$("#langButton").fadeOut(300);
+						$("#exitScreen").fadeIn(300);
+					}
+				);
+				
+				
+				
+				
+				
+				$(".circleArrow").click(
+					function () {
+						$("#closeButton").fadeIn(300);
+						$("#langButton").fadeIn(300);
+						$("#exitScreen").fadeOut(300);
+					}
+				);
+				
+				
+				
+				$("html").click(top.timerReset);
+				$("#survey-complete").hide();	
+				
+				
+				
+				$('#outputBtn').click(function() {
+					
+					 $("#survey-wrap").fadeOut(300);
+					 $("#completeScreen").fadeIn(300);
+					 $("#closeButton").fadeOut(300);
+					 $("#langButton").fadeOut(300);
+					 outputQuizForm();	
+					e.stopPropagation();
+    				e.preventDefault();
+				});
+				
+				
+				
+				
+				
+			
+			}
+		
+		
+	</script>
+	</head>
+	<body id="quizform-body">
+<img src="images/close-button.png" id="closeButton">
+<div id="langButton">FRANÇAIS</div>
+<div id="exitScreen" style="background-image:url(images/bg-quiz_background_close.png); background-repeat: no-repeat;">
+      <p class="warningMessage" style="margin-top: 250px;">RETURN TO MAIN MENU</p>
+      <div class="divider">&nbsp;</div>
+      <div class="exitWarning"><span class="circleArrow"><span style="float:left; display:inline-block; margin-top: 10px;">BACK TO SCENE</span></span> <a href="en_main-menu.html" style="color: #ffffff;"><span class="homeIcon"><span style="float:left; display:inline-block; margin-top: 10px;">EXIT</span></span></a></div>
+    </div>
+</div>
+<div id="completeScreen">
+      <p class="warningMessage" style="margin-top: 260px;">PLEASE PROVIDE YOUR INFO</p>
+      <div class="divider">&nbsp;</div>
+      <div class="exitWarning"><a href="en_main-menu.html" style="color: #ffffff;"><span class="homeIcon"><span style="float:left; display:inline-block; margin-top: 10px;">RETURN TO MAIN MENU</span></span></a> </div>
+      <p align="center"><span id="output"></span></p>
+    </div>
+<div id="survey-bg">
+      <div id="survey-wrap" style="padding-top: 20px;padding-bottom: 0;">
+    <p class="warningMessage">receive more information</p>
+    <p>Are you a Government of Canada employee?  Would you like to receive notifications of new IT Security publications?  Leave your name and email address and we will add you to our distribution list.</p>
+    <form class="surveyForm" id="surveyForm">
+          <div style="float:left;">
+            <label for="quizName" style="float:left; margin-top: 7px;font-family: gotham-med;">Name:</label>
+          </div>
+          <div class="quizName otherField">
+            <input name="quizName" id="quizName" placeholder="" value="" type="text" style="width: 400px;">
+          </div>
+        
+      <div class="clear" style="padding-top: 20px;">
+      <div style="float:left;">
+            <label for="quizEmail" style="float:left; margin-top: 7px;font-family: gotham-med;">Email address:</label>
+          </div>
+          <div class="quizName otherField">
+            <input name="quizEmail" id="quizEmail" placeholder="" value="" type="text" style="width: 400px;">
+          </div>
+         <div class="clear" style="padding-bottom: 20px;">  
+         <h4>Please send me information about (check all that apply):</h4>
+          <fieldset data-role="controlgroup" data-type="vertical">
+              <input id="quizCheckbox01" value="General Awareness (Executive Level)"
+                type="checkbox" name="quizCheckbox">
+              <label for="quizCheckbox01">
+              <span class="inputBtn"></span>
+              <div style="margin-left: 40px; margin-top: -21px; line-height: 120%;"><span style="font-family: gotham-med;">General Awareness</span> (Executive Level)
+</div>
+              </label>
+              <input id="quizCheckbox02" value="General Awareness (Manager and below level)"
+                type="checkbox" name="quizCheckbox" class="clear">
+              <label for="quizCheckbox02">
+              <span class="inputBtn"></span>
+              <div style="margin-left: 40px; margin-top: -21px; line-height: 120%;"><span style="font-family: gotham-med;">General Awareness</span> (Manager and below level)</div>
+              </label>
+<input id="quizCheckbox03" value="Detailed Technical Guidance"
+                type="checkbox" name="quizCheckbox" class="clear">
+              <label for="quizCheckbox03"><span class="inputBtn"></span>
+              <div style="margin-left: 40px; margin-top: -21px; line-height: 120%;"><span style="font-family: gotham-med;">Detailed Technical Guidance</span>
+</div>
+              </label>
+            </fieldset>
+         
+          <div id="outputBtn" style="margin-top: 30px;"><span class="thumbsUp" style="width: 110px;"><span style="float:left; display:inline-block; margin-top: 18px;">SUBMIT</span></span></div>
+        
+        </form>
+  </div>
+    </div>
+</body>
+</html>

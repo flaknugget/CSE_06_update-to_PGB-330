@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Survey Testing - Home</title>
+	<meta charset="utf-8">
+	<link href="css/cse-style.css" rel="stylesheet" type="text/css"/>
+	<script type="text/javascript" charset="utf-8" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+	<script type="text/javascript" charset="utf-8" src="GAPlugin.js"></script>
+	<!-- <script type="text/javascript" charset="utf-8" src="js/jquery.validate.js"></script> -->
+	<script type="text/javascript" charset="utf-8" src="js/survey-en.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/ganalytics.js"></script>
+	<script type="text/javascript">
+		
+		
+<!-- fires device ready functions - only works within phonegap -->
+			document.addEventListener('deviceready', gapOnlyDeviceReady, false);
+			
+			<!-- fires device ready functions - only works within browser - is ignored on a device -->
+			$( document ).ready(function() {
+				
+				
+				
+				nonGapDeviceReady();
+			});
+			
+			<!-- device ready fuctions that can only run on the device happen here, then common device ready functions are fired -->
+			function gapOnlyDeviceReady() {				
+				// Initialize Google Analytics for the app
+				gaPlugin = window.plugins.gaPlugin;
+				gaPlugin.init(nativePluginInitHandler, nativePluginErrorHandler, "UA-43302718-1", 30);				
+				enSurveyPage();	
+				
+				top.timerStop();
+				top.timerStart();	
+				
+				nonGapDeviceReady();
+			}
+			
+			
+            function nonGapDeviceReady() {
+				
+				
+				$("#q01WorkSectorIndustry").click(function () {location.href = "#quetion01anchor";});
+				$("#q01WorkSectorOther").click(function () {location.href = "#quetion01anchor";});
+				$("#q02workSectorOther").click(function () {location.href = "#quetion02anchor";});
+				$("#q03workPositionOther").click(function () {location.href = "#quetion03anchor";});
+				$("#q08usefulPubsWhy").click(function () {location.href = "#quetion08anchor";});
+				$("#q08usefulPubsTopics").click(function () {location.href = "#quetion08anchor";});
+				$("#q16recommendations").click(function () {location.href = "#quetion16anchor";});
+				
+				$("#exitScreen").hide();
+				$("#completeScreen").hide();
+				
+				$("#surveyForm").hide();
+				
+				
+				
+				$("#closeButton").click(
+					function () {
+						
+						
+						$("#closeButton").fadeOut(300);
+						$("#langButton").fadeOut(300);
+						$("#exitScreen").fadeIn(300);
+					}
+				);
+				
+				
+				
+				$(".beginButton").click(
+					function () {						
+						$("#introScreen").fadeOut(300);
+						$("#surveyForm").fadeIn(300);
+						showClose();
+					}
+				);
+				
+				
+				$(".circleArrow").click(
+					function () {
+						$("#closeButton").fadeIn(300);
+						$("#langButton").fadeIn(300);
+						$("#exitScreen").fadeOut(300);
+					}
+				);
+				
+				
+				
+				$("html").click(top.timerReset);
+					
+				
+				$("#hidethis").hide();
+				$(".q01WorkSectorOtherContainer").hide();
+				$(".q01workSectorIndustryContainer").hide();
+				$(".q02workSectorOtherContainer").hide();
+				$(".q03workPositionOtherContainer").hide();
+				$(".q08usefulPubsWhyContainer").hide();
+				
+				$("#survey-complete").hide();
+				
+				$("#closeButton").hide();
+				$("#langButton").hide();
+				
+				
+				function showClose() {					
+					$("#closeButton").fadeIn(300);
+					$("#langButton").fadeIn(300);
+				}
+				
+				
+				$("#q01workSectorCheckOther").bind("click", function() {
+						if ($('#q01workSectorCheckOther').is(':checked')) {
+							$(".q01WorkSectorOtherContainer").fadeIn(300);
+							$(".q01workSectorIndustryContainer").hide();
+						} else {
+							$(".q01WorkSectorOtherContainer").hide();
+						};
+				});
+				
+				$("#q01workSectorCheckIndustry").bind("click", function() {
+						if ($('#q01workSectorCheckIndustry').is(':checked')) {
+							$(".q01workSectorIndustryContainer").fadeIn(300);
+							$(".q01WorkSectorOtherContainer").hide();
+						} else {
+							$(".q01workSectorIndustryContainer").hide();
+						};
+				});
+				
+				
+				
+				$("#checkbox11, #checkbox12, #checkbox13").bind("click", function() {
+						$(".q01workSectorIndustryContainer").hide();
+						$(".q01WorkSectorOtherContainer").hide();
+				});
+				
+				
+				
+				
+				
+				
+				
+				$("#q02workField, #checkbox14, #checkbox15, #checkbox16, #checkbox17").bind("click", function() {
+					if ($('#q02workField').is(':checked')) {
+						$(".q02workSectorOtherContainer").fadeIn(300);
+					} else {
+						$(".q02workSectorOtherContainer").hide();
+					};
+				});
+				
+				
+				
+				
+				
+				
+				$("#q03workPosition, #checkbox26, #checkbox27, #checkbox28").bind("click", function() {
+					if ($('#q03workPosition').is(':checked')) {
+						$(".q03workPositionOtherContainer").fadeIn(300);
+					} else {
+						$(".q03workPositionOtherContainer").hide();
+					};
+				});
+				
+				
+				$("#q08usefulPubsNo").bind("click", function() {
+						$(".q08usefulPubsWhyContainer").fadeIn(300);
+				});
+				
+				$("#q08usefulPubsYes").bind("click", function() {
+						$(".q08usefulPubsWhyContainer").hide();
+				});
+				
+				$("#q08usefulPubsNot").bind("click", function() {
+						$(".q08usefulPubsWhyContainer").hide();
+						
+				});
+				
+				
+				
+				
+				
+				
+				
+				$('#outputBtn').click(function() {
+					
+					 alert("outPut();");	 
+					 $("#surveyForm").fadeOut(300);
+					 $("#completeScreen").fadeIn(300);
+					 $("#closeButton").fadeOut(300);
+					 $("#langButton").fadeOut(300);
+					 outputForm();	
+					e.stopPropagation();
+    				e.preventDefault();
+				});
+				
+				
+				
+				
+				
+			
+			}
+		
+		
+	</script>
+	</head>
+	<body id="survey-body">
+      
+<img src="images/close-button.png" id="closeButton">
+<div id="langButton">FRANÇAIS</div>
+
+	<div id="exitScreen" style="background-image:url(images/bg-survey_background_close.png); background-repeat: no-repeat;">
+      <p class="warningMessage">RETURN TO MAIN MENU?</p>
+      <div class="divider">&nbsp;</div>
+      <div class="exitWarning"><span class="circleArrow"><span style="float:left; display:inline-block; margin-top: 10px;">BACK TO SCENE</span></span> <a href="en_main-menu.html" style="color: #ffffff;"><span class="homeIcon"><span style="float:left; display:inline-block; margin-top: 10px;">EXIT</span></span></a></div>
+    </div>
+</div>
+<div id="introScreen">
+      <p class="warningMessage">CSEC GTEC 2013 Questionnaire</p>
+      <p>Thank you for visiting CSEC’s exhibit. Your feedback will help us improve
+        and prepare for future events.</p>
+      <div class="divider">&nbsp;</div>
+      <div class="backToScene"><span class="beginButton"><span style="float:left; display:inline-block; margin-top: 10px;">BEGIN</span></span>
+    </div>
+    <p align="center"><span id="output"></span></p>
+</div>
+<div id="completeScreen">
+      <p class="warningMessage">THANK YOU FOR COMPLETING OUR SURVEY</p>
+      
+      <div class="divider">&nbsp;</div>
+      <div class="exitWarning"><a href="en_main-menu.html" style="color: #ffffff;"><span class="homeIcon"><span style="float:left; display:inline-block; margin-top: 10px;">RETURN TO MAIN MENU</span></span></a>
+    </div>
+    <p align="center"><span id="output"></span></p>
+</div>
+<div id="survey-bg">
+      <div id="survey-wrap">
+    <form class="surveyForm" id="surveyForm">
+         <!-- <h1> CSEC GTEC 2013 Questionnaire </h1>
+          <h3> Thank you for visiting CSEC’s exhibit. Your feedback will help us improve
+        and prepare for future events. </h3>
+           <h4> Please let us know a little about </h4>
+        <div data-role="fieldcontain">
+          <label for="q00firstName" style="font-weight: bold; padding-top: 8px;"> First Name </label>
+          <input name="q00firstName" id="q00firstName" placeholder="" value="" type="text">
+        </div>
+        <div data-role="fieldcontain">
+          <label for="q00lastName" style="font-weight: bold; padding-top: 8px;"> Last Name </label>
+          <input name="q00lastName" id="q00lastName" placeholder="" value="" type="text">
+        </div>
+        <div data-role="fieldcontain">
+          <label for="q00email" style="font-weight: bold; padding-top: 8px;"> email </label>
+          <input name="q00email" id="q00email" placeholder="" value="" type="text">
+        </div> -->
+          <h4 id="quetion01anchor"> 1. In which sector do you currently work? </h4>
+          <div id="q01-workSector" class="question">
+        <label for="q01workSector" class="error" generated="true"></label>
+        <fieldset data-role="controlgroup" data-type="horizontal" style="clear:both;">
+              <div class="radioColA">
+            <input id="checkbox11" value="Federal Government" type="radio" name="q01workSector">
+            <label for="checkbox11"> <span class="inputBtn"></span>Federal Government </label>
+            <input id="checkbox12" value="Provincial Government" type="radio" name="q01workSector">
+            <label for="checkbox12"> <span class="inputBtn"></span>Provincial Government </label>
+            <input id="checkbox13" value="Municipal Government" type="radio" name="q01workSector">
+            <label for="checkbox13"> <span class="inputBtn"></span>Municipal Government </label>
+          </div>
+              <div class="radioColB">
+            <div style="width: 100%; display: block;">
+                  <input id="q01workSectorCheckIndustry" value="Industry" type="radio" name="q01workSector">
+                  <label for="q01workSectorCheckIndustry" style="float:left;"><span class="inputBtn"></span>Industry (Please Specify)</label>
+                  <div class="q01workSectorIndustryContainer otherField"><!--<label for="q01WorkSectorIndustry"> Please specify: </label> -->
+                <input name="q01WorkSectorIndustry" id="q01WorkSectorIndustry" placeholder="" value="" type="text" style="width: 150px;">
+              </div>
+                </div>
+            <div style="width: 100%; display: block; clear:both;">
+                  <input id="q01workSectorCheckOther" value="Other" type="radio" name="q01workSector">
+                  <label for="q01workSectorCheckOther" style="float:left;"><span class="inputBtn"></span>Other (Please Specify)</label>
+                  <div class="q01WorkSectorOtherContainer otherField"><!--<label for="q01WorkSectorOther"> Please specify: </label>-->
+                <input name="q01WorkSectorOther" id="q01WorkSectorOther" placeholder="" value="" type="text" style="width: 150px;">
+              </div>
+                </div>
+          </div>
+            </fieldset>
+      </div>
+          <div style="clear:both;"></div>
+          <h4 id="quetion02anchor"> 2. In which field do you work? </h4>
+          <div id="q02-workField" class="question">
+        <label for="q02workField" class="error" generated="true"></label>
+        <fieldset data-role="controlgroup" data-type="horizontal">
+              <div class="radioColA">
+            <input id="checkbox14" value="IT" type="radio" name="q02workField">
+            <label for="checkbox14"><span class="inputBtn"></span> IT </label>
+            <input id="checkbox15" value="IT Security" type="radio" name="q02workField">
+            <label for="checkbox15"><span class="inputBtn"></span> IT Security </label>
+            <input id="checkbox16" value="Defence" type="radio" name="q02workField">
+            <label for="checkbox16"><span class="inputBtn"></span> Defence </label>
+          </div>
+              <div class="radioColB">
+              <input id="checkbox17" value="Sales/Marketing" type="radio" name="q02workField">
+              <label for="checkbox17"><span class="inputBtn"></span> Sales/Marketing </label>
+              <div style="float:left;">
+            <input id="q02workField" value="Other" type="radio" name="q02workField">
+            <label for="q02workField" style="float:left;"><span class="inputBtn"></span> Other (Please Specify)</label>
+          </div>
+              <div class="q02workSectorOtherContainer otherField">
+            <input name="q02workSectorOther" id="q02workSectorOther" placeholder="" value="" type="text" style="width: 150px;">
+          </div>
+            </fieldset>
+      </div>
+          <div style="clear:both;"></div>
+          <h4 id="quetion03anchor"> 3. Which category best represents your position? </h4>
+          <div id="q03-workPosition" class="question">
+        <label for="q03workPosition" class="error" generated="true"></label>
+        <fieldset data-role="controlgroup" data-type="horizontal">
+              <div class="radioColA">
+            <input id="checkbox26" value="Executive" type="radio" name="q03workPosition">
+            <label for="checkbox26"><span class="inputBtn"></span> Executive </label>
+            <input id="checkbox27" value="Specialist" type="radio" name="q03workPosition">
+            <label for="checkbox27"><span class="inputBtn"></span> Specialist </label>
+          </div>
+              <div class="radioColB">
+            <input id="checkbox28" value="Manager" type="radio" name="q03workPosition">
+            <label for="checkbox28"><span class="inputBtn"></span> Manager </label>
+            <input id="q03workPosition" value="Other" type="radio" name="q03workPosition">
+            <label for="q03workPosition" style="float:left;"><span class="inputBtn"></span> Other (Please Specify)</label>
+            <div class="q03workPositionOtherContainer otherField">
+                  <input name="q03workPositionOther" id="q03workPositionOther" placeholder="" value="" type="text" style="width: 150px;">
+                </div>
+          </div>
+            </fieldset>
+      </div>
+          <div style="clear:both;"></div>
+          <h4 id="quetion04anchor"> 4. Are you familiar with the Communications Security Establishment Canada
+        (CSEC), its role and responsibilities? </h4>
+          <div id="q04-familiarWithCSEC" class="question">
+        <label for="q04familiarWithCSEC" class="error" generated="true"></label>
+        <fieldset data-role="controlgroup" data-type="vertical">
+              <input id="radio1" name="q04familiarWithCSEC" value="Yes, I have previous knowledge about CSEC"
+                type="radio">
+              <label for="radio1"><span class="inputBtn"></span> Yes, I have previous knowledge about CSEC </label>
+              <input id="radio2" name="q04familiarWithCSEC" value="Yes, I have learned about CSEC at the GTEC exhibit "
+                type="radio">
+              <label for="radio2"><span class="inputBtn"></span> Yes, I have learned about CSEC at the GTEC exhibit </label>
+              <input id="radio3" name="q04familiarWithCSEC" value="No, I am not familiar with CSEC" type="radio">
+              <label for="radio3"><span class="inputBtn"></span> No, I am not familiar with CSEC </label>
+            </fieldset>
+      </div>
+          <div style="clear:both;"></div>
+          <h4 id="quetion05anchor"> 5. Are you aware of CSEC’s IT Security Learning Centre and the training
+        services it provides? </h4>
+          <div id="q05-familiarWithCSECLearning" class="question">
+        <label for="q05familiarWithCSECLearning" class="error" generated="true"></label>
+        <fieldset data-role="controlgroup" data-type="horizontal">
+              <div class="radioColA">
+            <input id="radio5" name="q05familiarWithCSECLearning" value="Yes" type="radio">
+            <label for="radio5"><span class="inputBtn"></span> Yes </label>
+          </div>
+              <div class="radioColB">
+            <input id="radio6" name="q05familiarWithCSECLearning" value="No" type="radio">
+            <label for="radio6"><span class="inputBtn"></span> No </label>
+          </div>
+            </fieldset>
+      </div>
+          <div style="clear:both;"></div>
+          <h4 id="quetion06anchor"> 6. Are you interested in a career at CSEC? </h4>
+          <div id="q06-careerCSEC" class="question">
+        <label for="q06careerCSEC" class="error" generated="true"></label>
+        <fieldset data-role="controlgroup" data-type="horizontal">
+              <div class="radioColA">
+            <input id="radio7" name="q06careerCSEC" value="Yes" type="radio">
+            <label for="radio7"><span class="inputBtn"></span> Yes </label>
+          </div>
+              <div class="radioColB">
+            <input id="radio8" name="q06careerCSEC" value="No" type="radio">
+            <label for="radio8"><span class="inputBtn"></span> No </label>
+          </div>
+            </fieldset>
+      </div>
+          <div style="clear:both;"></div>
+          <h4 id="quetion07anchor"> 7. Have you implemented, or will you consider implementing CSEC’s Top
+        4 Mitigation Measures? </h4>
+          <div id="q07-implementCSEC" class="question">
+        <label for="q07implementCSEC" class="error" generated="true"></label>
+        <fieldset data-role="controlgroup" data-type="horizontal">
+              <div class="radioColA">
+            <input id="radio9" name="q07implementCSEC" value="Yes" type="radio">
+            <label for="radio9"><span class="inputBtn"></span> Yes </label>
+          </div>
+              <div class="radioColB">
+            <input id="radio10" name="q07implementCSEC" value="No" type="radio">
+            <label for="radio10"><span class="inputBtn"></span> No </label>
+          </div>
+              <input id="radio11" name="q07implementCSEC" value="I am not familiar with the Top 4 Mitigation Measures "
+                type="radio">
+              <label for="radio11"><span class="inputBtn"></span> I am not familiar with the Top 4 Mitigation Measures </label>
+            </fieldset>
+      </div>
+          <div style="clear:both;"></div>
+          <h4 id="quetion08anchor"> 8. If you have browsed CSEC’s IT security publications, do you find them
+        useful for your job function? </h4>
+          <div id="q08-usefulPubs" class="question">
+        <label for="q08usefulPubs" class="error" generated="true"></label>
+        <fieldset data-role="controlgroup" data-type="horizontal">
+              <div class="radioColA">
+            <input id="q08usefulPubsYes" name="q08usefulPubs" value="Yes" type="radio">
+            <label for="q08usefulPubsYes"><span class="inputBtn"></span> Yes </label>
+            <input id="q08usefulPubsNot" name="q08usefulPubs" value="Not applicable" type="radio">
+            <label for="q08usefulPubsNot"><span class="inputBtn"></span> Not applicable </label>
+          </div>
+              <div class="radioColB">
+            <input id="q08usefulPubsNo" name="q08usefulPubs" value="No" type="radio">
+            <label for="q08usefulPubsNo"><span class="inputBtn"></span> No </label>
+            <div class="q08usefulPubsWhyContainer otherField">
+                  <div class="q08usefulPubsWhyContainer" style="float: left; margin-top: 15px;">
+                <label for="q08usefulPubsWhy" style="float: left;"><span class="inputBtn"></span> If No, why? </label>
+                <input name="q08usefulPubsWhy" id="q08usefulPubsWhy" placeholder="" value="" type="text" style="float: left; width: 150px;">
+              </div>
+                </div>
+          </div>
+            </fieldset>
+      </div>
+          <div style="margin-top: 15px;">
+        <label for="q08usefulPubsTopics"><span class="inputBtn"></span> What other topics would you be interested in reading about? </label>
+        <input name="q08usefulPubsTopics" id="q08usefulPubsTopics" placeholder="" value="" type="text">
+      </div>
+          <div style="clear:both;"></div>
+          <h4 id="quetion09anchor"> 9. Will you attend a CSEC presentation at GTEC 2013? </h4>
+          <div id="q09-presentations" class="question">
+        <fieldset data-role="controlgroup" data-type="vertical">
+              <input id="checkbox29" value="Keynote session: Cyber Security and the Government of Canada, presented by John Forster"
+                type="checkbox" name="q09presentations">
+              <label for="checkbox29">
+              <span class="inputBtn"></span>
+              <div style="margin-left: 40px; margin-top: -25px; line-height: 120%;"><span style="font-family: gotham-med;">Keynote session:</span><br>
+            Cyber Security and the Government of Canada, presented
+            by John Forster</strong>
+            <div style="clear:both;"></div>
+            Wednesday – October 9, location, 9:30 am</div>
+              </label>
+              <br>
+              <input id="checkbox30" value="Concurrent session: Cyber Intrusion Instant Replay"
+                type="checkbox" name="q09presentations">
+              <label for="checkbox30">
+              <span class="inputBtn"></span>
+              <div style="margin-left: 40px; margin-top: -25px; line-height: 120%;"><span style="font-family: gotham-med;">Concurrent session: Cyber Intrusion Instant Replay</span>
+            <div style="clear:both;"></div>
+            Wednesday – October
+            9, location, 2:00 pm</div>
+              </label>
+            </fieldset>
+      </div>
+          <div style="clear:both;"></div>
+          <h4 id="quetion10anchor"> 10. The information presented by CSEC at GTEC 2013 was useful. </h4>
+          <div id="q10-usefulInfo" class="question">
+        <label for="q10usefulInfo" class="error" generated="true"></label>
+        <fieldset data-role="controlgroup" data-type="horizontal">
+              <input id="radio15" name="q10usefulInfo" value="Strongly Agree" type="radio">
+              <label for="radio15"><span class="inputBtn"></span> Strongly Agree </label>
+              <input id="radio16" name="q10usefulInfo" value="Agree" type="radio">
+              <label for="radio16"><span class="inputBtn"></span> Agree </label>
+              <input id="radio17" name="q10usefulInfo" value="Neutral" type="radio">
+              <label for="radio17"><span class="inputBtn"></span> Neutral </label>
+              <input id="radio18" name="q10usefulInfo" value="Disagree" type="radio">
+              <label for="radio18"><span class="inputBtn"></span> Disagree </label>
+              <input id="radio19" name="q10usefulInfo" value="Strongly Disagree" type="radio">
+              <label for="radio19"><span class="inputBtn"></span> Strongly Disagree </label>
+            </fieldset>
+      </div>
+          <div style="clear:both;"></div>
+          <h4 id="quetion11anchor"> 11. The CSEC booth staff at GTEC 2013 were helpful. </h4>
+          <div id="q11-helpfulStaff" class="question">
+        <label for="q11helpfulStaff" class="error" generated="true"></label>
+        <fieldset data-role="controlgroup" data-type="horizontal">
+              <input id="radio20" name="q11helpfulStaff" value="Strongly Agree" type="radio">
+              <label for="radio20"><span class="inputBtn"></span> Strongly Agree </label>
+              <input id="radio21" name="q11helpfulStaff" value="Agree" type="radio">
+              <label for="radio21"><span class="inputBtn"></span> Agree </label>
+              <input id="radio22" name="q11helpfulStaff" value="Neutral" type="radio">
+              <label for="radio22"><span class="inputBtn"></span> Neutral </label>
+              <input id="radio23" name="q11helpfulStaff" value="Disagree" type="radio">
+              <label for="radio23"><span class="inputBtn"></span> Disagree </label>
+              <input id="radio24" name="q11helpfulStaff" value="Strongly Disagree" type="radio">
+              <label for="radio24"><span class="inputBtn"></span> Strongly Disagree </label>
+            </fieldset>
+      </div>
+          <div style="clear:both;"></div>
+          <h4 id="quetion12anchor"> 12. I am concerned about cyber security. </h4>
+          <div id="q12-concernedCyberSecurity" class="question">
+        <label for="q12concernedCyberSecurity" class="error" generated="true"></label>
+        <fieldset data-role="controlgroup" data-type="horizontal">
+              <input id="radio25" name="q12concernedCyberSecurity" value="Strongly Agree" type="radio">
+              <label for="radio25"><span class="inputBtn"></span> Strongly Agree </label>
+              <input id="radio26" name="q12concernedCyberSecurity" value="Agree" type="radio">
+              <label for="radio26"><span class="inputBtn"></span> Agree </label>
+              <input id="radio27" name="q12concernedCyberSecurity" value="Neutral" type="radio">
+              <label for="radio27"><span class="inputBtn"></span> Neutral </label>
+              <input id="radio28" name="q12concernedCyberSecurity" value="Disagree" type="radio">
+              <label for="radio28"><span class="inputBtn"></span> Disagree </label>
+              <input id="radio29" name="q12concernedCyberSecurity" value="Strongly Disagree" type="radio">
+              <label for="radio29"><span class="inputBtn"></span> Strongly Disagree </label>
+            </fieldset>
+      </div>
+          <div style="clear:both;"></div>
+          <h4 id="quetion13anchor"> 13. I am concerned about mobile security. </h4>
+          <div id="q13-concernedMobileSecurity" class="question">
+        <label for="q13concernedMobileSecurity" class="error" generated="true"></label>
+        <fieldset data-role="controlgroup" data-type="horizontal">
+              <input id="radio30" name="q13concernedMobileSecurity" value="Strongly Agree" type="radio">
+              <label for="radio30"><span class="inputBtn"></span> Strongly Agree </label>
+              <input id="radio31" name="q13concernedMobileSecurity" value="Agree" type="radio">
+              <label for="radio31"><span class="inputBtn"></span> Agree </label>
+              <input id="radio32" name="q13concernedMobileSecurity" value="Neutral" type="radio">
+              <label for="radio32"><span class="inputBtn"></span> Neutral </label>
+              <input id="radio33" name="q13concernedMobileSecurity" value="Disagree" type="radio">
+              <label for="radio33"><span class="inputBtn"></span> Disagree </label>
+              <input id="radio34" name="q13concernedMobileSecurity" value="Strongly Disagree" type="radio">
+              <label for="radio34"><span class="inputBtn"></span> Strongly Disagree </label>
+            </fieldset>
+      </div>
+          <div style="clear:both;"></div>
+          <h4 id="quetion14anchor"> 14. I am concerned about social media security. </h4>
+          <div id="q14-concernedSocialSecurity" class="question">
+        <label for="q14concernedSocialSecurity" class="error" generated="true"></label>
+        <fieldset data-role="controlgroup" data-type="horizontal">
+              <input id="radio35" name="q14concernedSocialSecurity" value="Strongly Agree" type="radio">
+              <label for="radio35"><span class="inputBtn"></span> Strongly Agree </label>
+              <input id="radio36" name="q14concernedSocialSecurity" value="Agree" type="radio">
+              <label for="radio36"><span class="inputBtn"></span> Agree </label>
+              <input id="radio37" name="q14concernedSocialSecurity" value="Neutral" type="radio">
+              <label for="radio37"><span class="inputBtn"></span> Neutral </label>
+              <input id="radio38" name="q14concernedSocialSecurity" value="Disagree" type="radio">
+              <label for="radio38"><span class="inputBtn"></span> Disagree </label>
+              <input id="radio39" name="q14concernedSocialSecurity" value="Strongly Disagree" type="radio">
+              <label for="radio39"><span class="inputBtn"></span> Strongly Disagree </label>
+            </fieldset>
+      </div>
+          <div style="clear:both;"></div>
+          <h4 id="quetion15anchor"> 15. Following this event, will you visit the CSEC event website for more
+        information? </h4>
+          <div id="q15-visitCSEC" class="question">
+        <label for="q15visitCSEC" class="error" generated="true"></label>
+        <fieldset data-role="controlgroup" data-type="horizontal"><div class="radioColA">
+              <input id="radio40" name="q15visitCSEC" value="Yes" type="radio">
+              <label for="radio40"><span class="inputBtn"></span> Yes </label></div><div class="radioColB">
+              <input id="radio41" name="q15visitCSEC" value="No" type="radio">
+              <label for="radio41"><span class="inputBtn"></span> No </label></div>
+            </fieldset>
+      </div>
+          <div style="clear:both;"></div>
+          <h4 id="quetion16anchor"> 16. Please share with us topics you would be interested in learning about
+        from CSEC, or recommendations for future events. </h4>
+          <div>
+        <textarea name="q16recommendations" id="q16recommendations" placeholder=""></textarea>
+      </div>
+     
+      <div id="outputBtn"><span class="thumbsUp"><span style="float:left; display:inline-block; margin-top: 16px;">SUBMIT THE SURVEY</span></span></div>
+      <p style="clear:both; padding-bottom: 300px;">&nbsp;</p>
+         <!-- <input id="outputBtn" onclick="TrackButtonClicked();" name="btnSubmit" type="submit" data-icon="arrow-r" data-iconpos="left" value="Submit">
+          
+           /content -->
+        </form>
+  </div>
+    </div>
+</body>
+</html>
